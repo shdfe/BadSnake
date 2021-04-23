@@ -1,13 +1,13 @@
 var boardRep = [[],[],[],[],[],[],[],[],[],[]];
-var SNAKE_BODY = "0";
-var FOOD = "1";
-var SNAKE_POS = [[5,6],[5,7], [5,8]]
+const SNAKE_BODY = "0";
+const FOOD = "1";
+const SNAKE_POS = [[5,6],[5,7], [5,8]]
 var score = document.getElementById("score");
 score.innerHTML = `<h1 id="score">${SNAKE_POS.length}</h1>`;
 
 function populateRepBoard() {
-    for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 10; j++) {
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
             if (boardRep[i][j] === FOOD) {
                 continue;
             }
@@ -35,9 +35,9 @@ generateRandomFood();
 
 function populateBoard() {
     var table = document.getElementById("snakee");
-    for (var i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         var row = table.insertRow(i);
-        for (var j = 0; j < 10; j++) {
+        for (let j = 0; j < 10; j++) {
             var cell = row.insertCell(j);
             if (boardRep[i][j] === FOOD) {
                 cell.className = "food";
@@ -53,8 +53,8 @@ populateBoard();
 
 function renderBoard() {
     var table = document.querySelectorAll("td");
-    for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 10; j++) {
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
             if (boardRep[i][j] === SNAKE_BODY) {
                 table.item(i*10+j).className = "snake";
             }
